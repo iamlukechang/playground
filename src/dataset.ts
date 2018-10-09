@@ -151,6 +151,27 @@ export function classifySpiralData(numSamples: number, noise: number):
   return points;
 }
 
+export function classifyRadiationData(numSamples: number, noise: number):
+    Example2D[] {
+  let points: Example2D[] = [];
+
+  for (let i = 0; i < numSamples; i++) {
+    let groupNumber = i % 6;
+    let label = groupNumber % 2 ? -1 : 1;
+
+    let upperBoundDegree = Math.PI * (4 * (groupNumber + 1) - 1 + noise * 2) / 12;
+    let lowerBoundDegree = Math.PI * (4 * groupNumber + 1 - noise * 2) / 12;
+    let degree = randUniform(upperBoundDegree, lowerBoundDegree);
+    let radius = randUniform(1, 5);
+    let x = radius * Math.cos(degree);
+    let y = radius * Math.sin(degree);
+
+    points.push({x, y, label});
+  }
+
+  return points;
+}
+
 export function classifyCircleData(numSamples: number, noise: number):
     Example2D[] {
   let points: Example2D[] = [];

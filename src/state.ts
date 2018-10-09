@@ -40,6 +40,7 @@ export let datasets: {[key: string]: dataset.DataGenerator} = {
   "xor": dataset.classifyXORData,
   "gauss": dataset.classifyTwoGaussData,
   "spiral": dataset.classifySpiralData,
+  "radiation": dataset.classifyRadiationData
 };
 
 /** A map between dataset names and functions that generate regression data. */
@@ -124,8 +125,10 @@ export class State {
     {name: "ySquared", type: Type.BOOLEAN},
     {name: "cosX", type: Type.BOOLEAN},
     {name: "sinX", type: Type.BOOLEAN},
+    {name: "tanX", type: Type.BOOLEAN},
     {name: "cosY", type: Type.BOOLEAN},
     {name: "sinY", type: Type.BOOLEAN},
+    {name: "tanY", type: Type.BOOLEAN},
     {name: "collectStats", type: Type.BOOLEAN},
     {name: "tutorial", type: Type.STRING},
     {name: "problem", type: Type.OBJECT, keyMap: problems},
@@ -158,8 +161,10 @@ export class State {
   ySquared = false;
   cosX = false;
   sinX = false;
+  tanX = false;
   cosY = false;
   sinY = false;
+  tanY = false;
   dataset: dataset.DataGenerator = dataset.classifyCircleData;
   regDataset: dataset.DataGenerator = dataset.regressPlane;
   seed: string;
