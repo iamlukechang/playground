@@ -172,6 +172,24 @@ export function classifyRadiationData(numSamples: number, noise: number):
   return points;
 }
 
+export function classifySlopeData(numSamples: number, noise: number):
+    Example2D[] {
+  let points: Example2D[] = [];
+
+  for (let i = 0; i < numSamples; i++) {
+    let groupNumber = i % 4;
+    let label = groupNumber % 2 ? -1 : 1;
+
+    let c = randUniform(groupNumber * 6 - 11 - noise * 2, groupNumber * 6 - 7 + noise * 2);
+    let x = randUniform(3 - groupNumber ? -6 : 0, groupNumber ? 6 : 0);
+    let y = c - x;
+
+    points.push({x, y, label});
+  }
+
+  return points;
+}
+
 export function classifyCircleData(numSamples: number, noise: number):
     Example2D[] {
   let points: Example2D[] = [];
