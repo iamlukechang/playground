@@ -41,7 +41,8 @@ export let datasets: {[key: string]: dataset.DataGenerator} = {
   "gauss": dataset.classifyTwoGaussData,
   "spiral": dataset.classifySpiralData,
   "radiation": dataset.classifyRadiationData,
-  "slope": dataset.classifySlopeData
+  "slope": dataset.classifySlopeData,
+  "parabola": dataset.classifyParabolaData
 };
 
 /** A map between dataset names and functions that generate regression data. */

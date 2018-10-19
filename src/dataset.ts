@@ -190,6 +190,24 @@ export function classifySlopeData(numSamples: number, noise: number):
   return points;
 }
 
+export function classifyParabolaData(numSamples: number, noise: number):
+    Example2D[] {
+  let points: Example2D[] = [];
+
+  for (let i = 0; i < numSamples; i++) {
+    let label = i % 2 ? -1 : 1;
+
+    let c = i % 2 ? randUniform(4 - noise * 2, 6) : randUniform(-6, 2 + noise * 2);
+    let a = i % 2 ? randUniform(0, 1) : 1;
+    let x = i % 2 ? randUniform(-6, 6) : randUniform(-3, 3);
+    let y = a * Math.pow(x, 2) - c;
+
+    points.push({x, y, label});
+  }
+
+  return points;
+}
+
 export function classifyCircleData(numSamples: number, noise: number):
     Example2D[] {
   let points: Example2D[] = [];
