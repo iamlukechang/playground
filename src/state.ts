@@ -142,9 +142,9 @@ export class State {
   showTestData = false;
   noise = 0;
   batchSize = 10;
-  discretize = false;
+  discretize = true;
   tutorial: string = null;
-  percTrainData = 50;
+  percTrainData = 90;
   activation = nn.Activations.TANH;
   regularization: nn.RegularizationFunction = null;
   problem = Problem.CLASSIFICATION;
@@ -153,7 +153,7 @@ export class State {
   collectStats = false;
   numHiddenLayers = 1;
   hiddenLayerControls: any[] = [];
-  networkShape: number[] = [4, 2];
+  networkShape: number[] = [1];
   x = true;
   y = true;
   xTimesY = false;
@@ -165,7 +165,7 @@ export class State {
   cosY = false;
   sinY = false;
   tanY = false;
-  dataset: dataset.DataGenerator = dataset.classifyCircleData;
+  dataset: dataset.DataGenerator = dataset.classifyTwoGaussData;
   regDataset: dataset.DataGenerator = dataset.regressPlane;
   seed: string;
 

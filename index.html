@@ -60,7 +60,7 @@ limitations under the License.
         <span class="label">Epoch</span>
         <span class="value" id="iter-number"></span>
       </div>
-      <div class="control ui-learningRate">
+      <div class="control ui-learningRate config">
         <label for="learningRate">Learning rate</label>
         <div class="select">
           <select id="learningRate">
@@ -78,7 +78,7 @@ limitations under the License.
           </select>
         </div>
       </div>
-      <div class="control ui-activation">
+      <div class="control ui-activation config">
         <label for="activations">Activation</label>
         <div class="select">
           <select id="activations">
@@ -89,7 +89,7 @@ limitations under the License.
           </select>
         </div>
       </div>
-      <div class="control ui-regularization">
+      <div class="control ui-regularization config">
         <label for="regularizations">Regularization</label>
         <div class="select">
           <select id="regularizations">
@@ -99,7 +99,7 @@ limitations under the License.
           </select>
         </div>
       </div>
-      <div class="control ui-regularizationRate">
+      <div class="control ui-regularizationRate config">
         <label for="regularRate">Regularization rate</label>
         <div class="select">
           <select id="regularRate">
@@ -116,7 +116,7 @@ limitations under the License.
           </select>
         </div>
       </div>
-      <div class="control ui-problem">
+      <div class="control ui-problem config">
         <label for="problem">Problem type</label>
         <div class="select">
           <select id="problem">
@@ -162,7 +162,7 @@ limitations under the License.
           </div>
         </div>
       </div>
-      <div>
+      <div class="config">
         <div class="ui-percTrainData">
           <label for="percTrainData">Ratio of training to test data:&nbsp;&nbsp;<span class="value">XX</span>%</label>
           <p class="slider">
@@ -265,7 +265,7 @@ limitations under the License.
         <div id="linechart"></div>
       </div>
       <div id="heatmap"></div>
-      <div style="float:left;margin-top:20px">
+      <div class="config" style="float:left;margin-top:20px">
         <div style="display:flex; align-items:center;">
 
           <!-- Gradient color scale -->
@@ -304,5 +304,29 @@ limitations under the License.
   <script src="bundle.js"></script>
   <!-- Google analytics -->
   <script src="analytics.js"></script>
+
+  <!-- config -->
+  <style>
+    .config {
+      visibility: hidden;
+    }
+
+    .config.on {
+      visibility: visible;
+    }
+  </style>
+  <script>
+    window.configOn = function() {
+      document.querySelectorAll('.config').forEach(confElem => {
+        confElem.classList.add('on');
+      });
+    };
+
+    window.configOff = function() {
+      document.querySelectorAll('.config').forEach(confElem => {
+        confElem.classList.remove('on');
+      });
+    };
+  </script>
 </body>
 </html>
